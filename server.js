@@ -95,7 +95,7 @@ function validateAnimal(animal) {
     return false;
   }
   return true;
-};
+}
 
 app.post('/api/animals', (req, res) => {
   // set id based on what the next index of the array will be
@@ -105,10 +105,8 @@ app.post('/api/animals', (req, res) => {
   if (!validateAnimal(req.body)) {
     res.status(400).send('The animal is not properly formatted.');
   } else {
-    // add animal to json file and animals array
     const animal = createNewAnimal(req.body, animals);
-
-    res.json(req.body);
+    res.json(animal);
   }
 });
 
